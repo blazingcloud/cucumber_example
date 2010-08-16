@@ -1,0 +1,12 @@
+<%=
+  output = {}
+  output[:request] = request.url
+  result = []
+  @stories.each do |story|
+     result <<  {:title => story.title, :content => story.content }
+  end
+  output[:result] = result
+   output["status"] = {"code" => 200, "message" =>  "ok"}
+   output.to_json
+%>
+
